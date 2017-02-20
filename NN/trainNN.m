@@ -245,9 +245,7 @@ for i = 1 : numepochs
     
     % plot training and validation loss 
     if nn.showPlot == 1;
-
         updatefigure(fhandle,L(1:i), L_val(1:i), validation, numepochs);
-    
     end
     
     % when early stopping is used and validation error has increased more than the maximum allowed numner
@@ -263,6 +261,8 @@ for i = 1 : numepochs
 
     
 end
- 
 
-
+name = ['figures/', num2str(now), num2str(rand), '.fig'];
+updatefigure(fhandle,L(1:i), L_val(1:i), validation, numepochs);
+saveas(fhandle, name);
+disp(name);
